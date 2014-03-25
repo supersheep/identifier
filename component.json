@@ -1,0 +1,16 @@
+{
+  "name": "identifier",
+  "repo": "supersheep/identifier",
+  "description": "Get the possible css selector to identify an element in dom",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "cristiandouce/sizzle": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

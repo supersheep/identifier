@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="a">a</div>
+  <div id="b">
+    <div class="b">b</div>
+    <div class="b">b</div>
+  </div>
+  <ul class="c">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <ul class="c">
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+    <li>d</li>
+  </ul>
+
+  <button onclick="inspector.toggleActive();">toggleActive</button>
+
+  <script src="build/build.js"></script>
+  <script>
+    var $ = require("sizzle");
+    var Identifier = require("identifier");
+    var finder = new Identifier();
+
+
+    var cases = [
+        $(".b")[1],
+        $("#a")[0],
+        $(".c li")[3]
+    ]
+
+    cases.forEach(function(item){
+        console.log(finder.identifySingle(item))
+    });
+  </script>
+
+</body>
+</html>
