@@ -74,7 +74,7 @@ Identifier.prototype.identifyMulti = function(elem){
 
         selectors = selectors || possible_selectors(elem);
 
-        selectors.forEach(findPossibleSubIdentify);
+        selectors.forEach(find_possible_sub_identify);
 
         selectors = mix_selectors(possible_selectors(parent),selectors);
         elem = parent;
