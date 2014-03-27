@@ -79,7 +79,9 @@ Identifier.prototype.identifyMulti = function(elem){
         selectors = mix_selectors(possible_selectors(parent),selectors);
         elem = parent;
     }
-    return results;
+    return results.map(function(item){
+        return item.parent == "body" ? item.selector : [item.parent,item.selector].join(" ");
+    });
 }
 
 Identifier.prototype.getClasses = function(elem){
