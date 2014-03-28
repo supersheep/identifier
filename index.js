@@ -39,6 +39,7 @@ Identifier.prototype.identifyMulti = function(elem){
 
     function possible_selectors(elem){
         var selectors;
+        if(!elem){return [];}
         if(elem.getAttribute("class")){
             selectors = self.getClasses(elem);
         }else{
@@ -70,6 +71,7 @@ Identifier.prototype.identifyMulti = function(elem){
 
 
     while(parent !== body){
+        if(!elem){break;}
         parent = elem.parentNode;
 
         selectors = selectors || possible_selectors(elem);
@@ -97,6 +99,7 @@ Identifier.prototype.traverseParent = function(elem,selector){
     var parent_selector;
     var new_selector;
     var parent = elem.parentNode;
+    if(!parent){return "";}
     if(parent === body){
         return selector;
     }else{
