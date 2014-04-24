@@ -1,7 +1,9 @@
 var $ = require("sizzle");
 
-function Identifier(doc){
+function Identifier(doc,config){
     this.doc = doc || document;
+    config = config || {};
+    this.precise = config.precise;
     if(!Identifier.instance){
         Identifier.instance = this;
     }
@@ -39,13 +41,16 @@ Identifier.prototype.identifyMulti = function(elem){
 
     function possible_selectors(elem){
         var selectors;
+        var classes = [];
+        var tags = null;
         if(!elem){return [];}
         if(elem.getAttribute("class")){
-            selectors = self.getClasses(elem);
-        }else{
-            selectors = [elem.tagName.toLowerCase()];
+            classes = self.getClasses(elem);
         }
-        return selectors;
+
+        tags = [elem.tagName.toLowerCase()];
+
+        return self.precise ? (classes || tags) : classes.concat(tags);
     }
 
     function mix_selectors(arr1,arr2){
